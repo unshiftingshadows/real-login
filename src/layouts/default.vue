@@ -3,9 +3,9 @@
     <q-layout-header>
       <q-toolbar style="min-height: 250px;">
         <q-toolbar-title>
-          <img src="https://s3.amazonaws.com/realchurch-promo/logos/logo_church%401x.png" class="xs header-logo" style="margin-top: 20px;" />
+          <img src="https://real-45953.firebaseapp.com/logos/logo_church%402x.png" class="xs header-logo" style="margin-top: 20px;" />
           <!-- <div class="q-display-2 xs" style="text-align: center">REAL Builder</div> -->
-          <img src="https://s3.amazonaws.com/realchurch-promo/logos/logo_church%401x.png" class="header-logo gt-xs" />
+          <img src="https://real-45953.firebaseapp.com/logos/logo_church%402x.png" class="header-logo gt-xs" />
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
