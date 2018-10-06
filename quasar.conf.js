@@ -27,6 +27,7 @@ module.exports = function (ctx) {
       // gzip: true,
       // analyze: true,
       // extractCSS: false,
+      distDir: '../dist/login/' + ctx.modeName + '-' + ctx.themeName,
       extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',
