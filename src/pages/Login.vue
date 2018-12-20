@@ -157,7 +157,7 @@ export default {
     sendAuth (app) {
       this.$firebase.appAuth().then((res) => {
         console.log('auth', res)
-        this.$cookie.set('realToken', res.data.customToken)
+        this.$cookie.set('realToken', res.data.customToken, { domain: process.env.DEV ? 'localhost' : 'realchurch.app' })
         if (app !== undefined) {
           // openURL(`https://${app}.realchurch.app/login2`)
           // openURL(`http://localhost:8083/login2`)
