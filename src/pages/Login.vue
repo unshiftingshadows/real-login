@@ -103,7 +103,7 @@ export default {
         pswd: ''
       },
       forgotPassword: false,
-      appChooser: true,
+      appChooser: false,
       app: this.$route.params.app,
       apps: {
         message: 8082,
