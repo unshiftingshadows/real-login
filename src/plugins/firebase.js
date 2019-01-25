@@ -2,6 +2,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/functions'
+import 'firebase/firestore'
 
 /**
  * Settings for dev firebase instance
@@ -35,12 +36,28 @@ const prodSettings = {
  */
 const fbapp = firebase.initializeApp(process.env.DEV ? devSettings : prodSettings)
 
+async function checkTempUser (email) {
+  try {
+    return (await fbapp.firestore().collection('userTemp').doc(email).get()).exists
+  } catch (err) {
+    console.log(err)
+    return false
+  }
+}
+
+function addUserData (email, name, app, churchid) {
+  const addUserDataFunction = fbapp.functions().httpsCallable('user-addUserData')
+  return addUserDataFunction({ email, name, app, churchid })
+}
+
 // leave the export, even if you don't use it
 export default ({ app, router, Vue }) => {
   Vue.prototype.$firebase = {
     app: fbapp.firebase_,
     auth: fbapp.auth(),
     functions: fbapp.functions().httpsCallable,
-    appAuth: fbapp.functions().httpsCallable('user-appAuth')
+    appAuth: fbapp.functions().httpsCallable('user-appAuth'),
+    checkTempUser,
+    addUserData
   }
 }
